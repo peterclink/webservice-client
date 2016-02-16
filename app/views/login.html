@@ -1,0 +1,17 @@
+<div class="jumbotron col-md-4">
+	<div class="container">
+		<h2>Pangaea</h2>
+		<form name="frmLogin" novalidate ng-submit="frmLogin.$valid && vm.login()">
+			<div class="form-group">
+				<input class="form-control" ng-model="vm.credendials.login" required placeholder="Login">
+			</div>
+			<div class="form-group">
+				<input class="form-control" ng-model="vm.credentials.password" required placeholder="Senha">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Entrar</button>
+				{{frmLogin.$valid}}
+			</div>
+		</form>
+	</div>
+</div>
