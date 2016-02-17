@@ -39,6 +39,12 @@
       .state('main.dashboard', {
         url: '/dashboard',
         templateUrl: 'views/dashboard.html'
+      })
+      .state('auth', {
+        url: '/auth',
+        templateUrl: 'views/auth.html',
+        controller: 'authController',
+        controllerAs: 'vm',
       });
   }
 
