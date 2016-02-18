@@ -5,18 +5,27 @@
     .module('pangaea')
     .controller('loginController', loginController);
 
-  loginController.$inject = ['$scope', 'userService', '$state'];
+  loginController.$inject = ['$scope', 'authService', '$state', '$httpParamSerializerJQLike'];
 
-  function loginController($scope, userService, $state) {
+  function loginController($scope, authService, $state, $httpParamSerializerJQLike) {
     /* jshint validthis:true */
     var vm = this;
 
-    vm.credentials = {};
+    vm.credentials = {
+      login : 'peterlink',
+      password : '123456'
+    };
     vm.login = login;
 
-    function login() {
-      userService.logon(vm.credentials);
-      $state.go('main.dashboard');
+    function login(credentials) {
+      authService.logon($httpParamSerializerJQLike(credentials)).success(function(data) {
+        if(data.auth) {
+          console.log(data.token);
+        } else {
+          console.log('error');
+        }
+      });
+      //$state.go('main.dashboard');
     }
   }
 })();

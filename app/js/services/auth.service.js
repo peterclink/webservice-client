@@ -3,19 +3,37 @@
 
   angular
     .module('pangaea')
-    .service('authService', authService);
+    .factory('authService', authService);
 
   authService.$inject = ['$http'];
 
   function authService($http) {
     //$http.defaults.useXDomain = true;
-    this.getJwt = function() {
+
+    var service = {
+      logon: logon,
+      getJwt: getJwt,
+      validateJwt: validateJwt,
+    };
+
+    return service;
+
+    function logon(credentials) {
+      //$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+      return $http.post("http://webservice.localhost:8090/auth", credentials);
+    }
+
+    function getJwt() {
       return $http.get("http://webservice.localhost:8090/user/jwt");
     };
 
-    this.validateJwt = function() {
+    function validateJwt(token) {
+      var aux = token.split('.');
+      console.log(token);
+      var newToken = aux[0] + '.' + aux[1] + '.' + aux[2];
+      console.log(newToken);
       return $http.get('http://webservice.localhost:8090/user/validate', {
-          headers: {'HTTP_AUTHORIZATION': 'Bearer <eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJpc3MiOiJKV1QgRXhhbXBsZSIsImF1ZCI6IkpXVCBFeGFtcGxlIiwiaWF0IjoxNDU1NzM4OTI0LCJleHAiOjE0NTU3NDI1MjR9.'}
+          headers: {'HTTP_AUTHORIZATION': newToken}
       });
     };
   }
