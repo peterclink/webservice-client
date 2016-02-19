@@ -1,1 +1,17 @@
-dashboard
+<div class="row" style="margin-top: 20px">
+	<div class="col-md-12">
+		<p>Você está logado como <strong>{{vm.user}}</strong></p>
+		<hr>
+		<p>
+			Token:
+			<Br>
+			<pre>{{vm.token}}</pre>
+		</p>
+		<hr>
+		<p>
+			<a href="" ng-click="vm.isAuthenticated()">Validar Login</a>
+			<Br>
+			<pre>{{vm.validate}}</pre>
+		</p>
+	</div>
+</div>

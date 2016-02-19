@@ -4,6 +4,6 @@
   angular
     .module('pangaea')
     .value('appValue', {
-      baseUrl: 'http://webservice.localhost',
+      apiUrl: 'http://webservice.localhost:8090',
     });
 })();

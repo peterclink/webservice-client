@@ -15,7 +15,7 @@
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
-        controller: 'loginController',
+        controller: 'authController',
         controllerAs: 'vm',
       })
       .state('main', {
@@ -24,26 +24,10 @@
           requireLogin: true,
         }
       })
-      .state('questions', {
-        url: '/questions',
-        templateUrl: 'views/questions.html',
-        controller: 'questionController',
-        controllerAs: 'vm',
-      })
-      .state('question', {
-        url: '/question/:id',
-        templateUrl: 'views/question.html',
-        controller: 'questionController',
-        controllerAs: 'vm',
-      })
       .state('main.dashboard', {
         url: '/dashboard',
-        templateUrl: 'views/dashboard.html'
-      })
-      .state('auth', {
-        url: '/auth',
-        templateUrl: 'views/auth.html',
-        controller: 'authController',
+        templateUrl: 'views/dashboard.html',
+        controller: 'dashboardController',
         controllerAs: 'vm',
       });
   }

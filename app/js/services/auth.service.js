@@ -5,36 +5,29 @@
     .module('pangaea')
     .factory('authService', authService);
 
-  authService.$inject = ['$http', 'appValue'];
+  authService.$inject = ['$http', 'appValue', '$httpParamSerializerJQLike', 'store'];
 
-  function authService($http, appValue) {
+  function authService($http, appValue, $httpParamSerializerJQLike, store) {
     //$http.defaults.useXDomain = true;
 
     var service = {
       logon: logon,
-      getJwt: getJwt,
-      validateJwt: validateJwt,
+      isAuthenticated: isAuthenticated,
     };
 
     return service;
 
     function logon(credentials) {
-      //$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-      return $http.post( appValue.baseUrl + '/auth', credentials);
+      return $http.post( appValue.apiUrl + '/auth', $httpParamSerializerJQLike(credentials));
     }
 
-    function getJwt() {
-      return $http.get(appValue.baseUrl + '/user/jwt');
-    };
+    function isAuthenticated() {
 
-    function validateJwt(token) {
-      var aux = token.split('.');
-      console.log(token);
-      var newToken = aux[0] + '.' + aux[1] + '.' + aux[2];
-      console.log(newToken);
-      return $http.get( appValue.baseUrl + '/user/validate', {
-          headers: {'HTTP_AUTHORIZATION': newToken}
+      var token = store.get('token');
+      
+      return $http.get( appValue.apiUrl + '/auth/isAuthenticated', {
+          headers: {'HTTP_AUTHORIZATION': token}
       });
-    };
+    }
   }
 })();

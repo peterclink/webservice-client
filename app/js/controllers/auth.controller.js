@@ -1,24 +1,38 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('pangaea')
-	  .controller('authController', authController);
+  angular
+    .module('pangaea')
+    .controller('authController', authController);
 
-	authController.$inject = ['authService'];
+  authController.$inject = ['$scope', 'authService', '$state', 'store'];
 
-	function authController(authService) {
+  function authController($scope, authService, $state, store) {
+    /* jshint validthis:true */
+    var vm = this;
 
-	 	var vm = this;
+    vm.credentials = {
+      login : 'peterlink',
+      password : '123456'
+    };
+    
+    vm.login = login;
+    vm.logout = logout;
 
-		authService.getJwt().success(function(data){
-			console.log(data);
-			vm.jwt = data.token;
-			
-			authService.validateJwt(vm.jwt).success(function(data){
-				vm.auth = data;
-			});
-		});	
+    function login(credentials) {
+      authService.logon(credentials).success(function(data) {
+        if(data.auth) {
+          store.set('token', data.token);
+          $state.go('main.dashboard');
+        } else {
+          console.log('error');
+        }
+      });
+    }
 
-	}
+    function logout() {
+      store.remove('token');
+      $state.go('login');
+    }
+  }
 })();
