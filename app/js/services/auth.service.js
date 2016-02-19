@@ -5,9 +5,9 @@
     .module('pangaea')
     .factory('authService', authService);
 
-  authService.$inject = ['$http'];
+  authService.$inject = ['$http', 'appValue'];
 
-  function authService($http) {
+  function authService($http, appValue) {
     //$http.defaults.useXDomain = true;
 
     var service = {
@@ -20,11 +20,11 @@
 
     function logon(credentials) {
       //$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-      return $http.post("http://webservice.localhost:8090/auth", credentials);
+      return $http.post( appValue.baseUrl + '/auth', credentials);
     }
 
     function getJwt() {
-      return $http.get("http://webservice.localhost:8090/user/jwt");
+      return $http.get(appValue.baseUrl + '/user/jwt');
     };
 
     function validateJwt(token) {
@@ -32,7 +32,7 @@
       console.log(token);
       var newToken = aux[0] + '.' + aux[1] + '.' + aux[2];
       console.log(newToken);
-      return $http.get('http://webservice.localhost:8090/user/validate', {
+      return $http.get( appValue.baseUrl + '/user/validate', {
           headers: {'HTTP_AUTHORIZATION': newToken}
       });
     };

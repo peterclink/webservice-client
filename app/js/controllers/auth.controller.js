@@ -12,6 +12,7 @@
 	 	var vm = this;
 
 		authService.getJwt().success(function(data){
+			console.log(data);
 			vm.jwt = data.token;
 			
 			authService.validateJwt(vm.jwt).success(function(data){
