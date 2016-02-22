@@ -1,11 +1,7 @@
-<header>
-	<ul>
-		<li>
-			<a href="#/login" ui-sref="login">Login</a>
-		</li>
-		<li ng-controller="authController as vm">
-			<a href="" ng-click="vm.logout()">Logout</a>
-		</li>
-	</ul>
-</header>
-<div ui-view ng-animate=" 'animate' "></div>
+<div addon-navbar></div>
+
+<div class="ui-view-container">
+	<div class="container">
+		<div ui-view></div>
+	</div>
+</div>

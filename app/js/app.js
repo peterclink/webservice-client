@@ -1,8 +1,10 @@
+var app = 'pangaea';
+
 (function() {
   'use strict';
 
   angular
-    .module('pangaea', ['ui.router', 'angular-storage', 'ngAnimate'])
+    .module(app, ['ui.router', 'angular-storage', 'ngAnimate'])
     .run(run);
 
     run.$inject = ['$http', '$rootScope', '$state', 'authService'];

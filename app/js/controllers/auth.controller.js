@@ -31,6 +31,7 @@
     }
 
     function logout() {
+      console.log('teste');
       store.remove('token');
       $state.go('login');
     }
