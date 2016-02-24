@@ -156,6 +156,7 @@ module.exports = function(grunt) {
     grunt.registerTask('serve', ['connect:server:keepalive']);
 
     grunt.registerTask('dev', ['sass', 'imagemin', 'connect:server', 'watch']);
+    grunt.registerTask('xdev', ['sass', 'imagemin', 'watch']);
 
     grunt.registerTask('clear', ['clean:app']);
 

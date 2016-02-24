@@ -29,6 +29,10 @@
         templateUrl: 'views/dashboard.html',
         controller: 'dashboardController',
         controllerAs: 'vm',
+      })
+      .state('main.teste', {
+        url: '/teste',
+        templateUrl: 'views/teste.html',
       });
   }
 

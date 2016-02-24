@@ -26,7 +26,7 @@
       var token = store.get('token');
       
       return $http.get( appValue.apiUrl + '/auth/isAuthenticated', {
-          headers: {'HTTP_AUTHORIZATION': token}
+          headers: {'AUTHORIZATION': token}
       });
     }
   }
