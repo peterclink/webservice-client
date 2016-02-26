@@ -75,7 +75,7 @@
 /* Toggle Fade  
 /* ------------------------------------------- */
 
-.toggle {
+.ng--toggle {
   @include easingTimingFunction();
   &.ng-enter {
     opacity: 0;
@@ -120,7 +120,7 @@
 /* Slide Top 
 /* ------------------------------------------- */
 
-.slide-top {
+.ng--slide-top {
   @include easingTimingFunction();
   &.ng-enter {
     @include transform(translateY(60px)); 
@@ -174,7 +174,7 @@
 /* Slide Rigth 
 /* ------------------------------------------- */
 
-.slide-right {
+.ng--slide-right {
   @include easingTimingFunction();
   &.ng-enter {
     @include transform(translateX(60px)); 
@@ -228,7 +228,7 @@
 /* Slide Left 
 /* ------------------------------------------- */
 
-.slide-left {
+.ng--slide-left {
   @include easingTimingFunction();
   &.ng-enter {
     @include transform(translateX(-60px));
@@ -281,7 +281,7 @@
 /* Slide Down
 /* ------------------------------------------- */
 
-.slide-down {
+.ng--slide-down {
   @include easingTimingFunction();
 
   &.ng-enter {
@@ -336,7 +336,7 @@
 /* Bouncy Slide Top 
 /* ------------------------------------------- */
 
-.bouncy-slide-top {
+.ng--bouncy-slide-top {
   @include bouncyTimingFunction();
 
   &.ng-enter {
@@ -390,7 +390,7 @@
 /* Bouncy Slide Rigth 
 /* ------------------------------------------- */
 
-.bouncy-slide-right {
+.ng--bouncy-slide-right {
   @include bouncyTimingFunction();
 
   &.ng-enter {
@@ -445,7 +445,7 @@
 /* Bouncy Slide Left 
 /* ------------------------------------------- */
 
-.bouncy-slide-left {
+.ng--bouncy-slide-left {
   @include bouncyTimingFunction();
 
   &.ng-enter {
@@ -499,7 +499,7 @@
 /* Bouncy Slide Down
 /* ------------------------------------------- */
 
-.bouncy-slide-down {
+.ng--bouncy-slide-down {
   @include bouncyTimingFunction();
 
   &.ng-enter {
@@ -555,7 +555,7 @@
 /* Scale Fade 
 /* ------------------------------------------- */
 
-.scale-fade {
+.ng--scale-fade {
   @include easingTimingFunction();
 
   &.ng-enter {
@@ -609,7 +609,7 @@
 /* Spin Fade 
 /* ------------------------------------------- */
 
-.spin-toggle {
+.ng--spin-toggle {
   @include easingTimingFunction();
 
   &.ng-enter {
@@ -664,7 +664,7 @@
 /* Scale in Fade 
 /* ------------------------------------------- */
 
-.scale-fade-in {
+.ng--scale-fade-in {
   @include easingOutQuadTimingFunction();
 
   &.ng-enter {
@@ -719,7 +719,7 @@
 /* Bouncy Scale in Fade 
 /* ------------------------------------------- */
 
-.bouncy-scale-in {
+.ng--bouncy-scale-in {
   @include bouncyTimingFunction();
 
   &.ng-enter {
@@ -774,7 +774,7 @@
 /* Flip In 
 /* ------------------------------------------- */
 
-.flip-in {
+.ng--flip-in {
   @include easingTimingFunction();
 
   &.ng-enter {
@@ -828,7 +828,7 @@
 /* Rotate In 
 /* ------------------------------------------- */
 
-.rotate-in {
+.ng--rotate-in {
   @include bouncyTimingFunction();
 
   &.ng-enter {

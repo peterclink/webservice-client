@@ -25,7 +25,7 @@
           store.set('token', data.token);
           $state.go('main.dashboard');
         } else {
-          console.log('error');
+          console.log(data);
         }
       });
     }

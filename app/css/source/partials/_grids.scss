@@ -1,0 +1,57 @@
+.row {
+	width: 100%;
+  @include clearfix;
+}
+
+@for $i from 1 through 12 {
+  .col-md-#{$i} {
+    width: 100%;
+    float: left;
+
+    @include breakpoint ( dog ) {
+      width: unquote(( $i * 100) / 12 + '%');
+
+      &.col-pad {
+        width: unquote((( $i * 100) / 12 - 2) + '%');
+      }
+    }
+
+    &.col-right {
+      float : right;
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-md-offset-#{$i} {
+    margin-left: unquote(( $i * 100) / 12 + '%');
+  }
+}
+
+@for $i from 1 through 10 {
+  .tb-pad-#{$i * 10} {
+    padding: unquote( ( $i * 10 / 2 ) + 'px') 0;
+
+    @include breakpoint ( dog ) {
+      padding: unquote( $i * 10 + 'px') 0;
+    }
+  }
+}
+
+@for $i from 1 through 10 {
+  .top-pad-#{$i * 10} {
+    padding-top: unquote( $i * 10 + 'px');
+  }
+}
+
+@for $i from 1 through 10 {
+  .bot-pad-#{$i * 10} {
+    padding-bottom: unquote( $i * 10 + 'px');
+  }
+}
+
+@for $i from 1 through 10 {
+  .top-margin-#{$i * 10} {
+    margin-top: unquote( $i * 10 + 'px');
+  }
+}

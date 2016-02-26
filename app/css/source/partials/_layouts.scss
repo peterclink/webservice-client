@@ -1,5 +1,24 @@
 .container {
 	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
+
+	@include clearfix;
+}
+
+.container-fluid {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+
+	@include clearfix;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
 }

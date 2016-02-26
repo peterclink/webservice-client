@@ -30,9 +30,12 @@
         controller: 'dashboardController',
         controllerAs: 'vm',
       })
-      .state('main.teste', {
-        url: '/teste',
-        templateUrl: 'views/teste.html',
+      .state('teste', {
+        url: '/teste/:token',
+        template: '<div>Hello</div>',
+        controller: function($stateParams) {
+          alert($stateParams.token);
+        }
       });
   }
 

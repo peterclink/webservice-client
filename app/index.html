@@ -2,15 +2,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Pangaea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- build:css css/vendor.min.css -->
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css"> -->
   <!-- /build -->
   <!-- build:css css/styles.min.css -->
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <!-- /build -->
 </head>
 <body>
-  <div ui-view class="slide-left"></div>
+  <div ui-view class="ng--slide-left"></div>
   <!-- build:js js/vendor.min.js -->
   <script src="lib/angular/angular.min.js" charset="utf-8"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
@@ -23,7 +24,8 @@
   <script src="js/values/app.value.js" charset="utf-8"></script>
   <script src="js/config/http-provider.config.js" charset="utf-8"></script>
   <script src="js/config/ui-router.config.js" charset="utf-8"></script>
-  <script src="js/directives/addonNavbar.directive.js" charset="utf-8"></script>
+  <script src="js/directives/pgAnimation.directive.js" charset="utf-8"></script>
+  <script src="js/directives/pgNavbar.directive.js" charset="utf-8"></script>
   <script src="js/controllers/auth.controller.js" charset="utf-8"></script>
   <script src="js/controllers/dashboard.controller.js" charset="utf-8"></script>
   <script src="js/services/auth.service.js" charset="utf-8"></script>
